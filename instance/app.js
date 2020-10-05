@@ -2,7 +2,8 @@
 const app = Vue.createApp({
     data() {
         return {
-            messageGoal: 'learn vue'
+            messageGoal: 'Learn Vue',
+            vueLink: 'https://vueJs.org'
         };
     }
 });
