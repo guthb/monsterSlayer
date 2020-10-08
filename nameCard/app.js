@@ -9,6 +9,9 @@ const app = Vue.createApp({
   methods: {
     incrementAgeByFive() {
       return this.age + 5;
+    },
+    favoriteNumber() {
+      return Math.random();
     }
   }
 });
