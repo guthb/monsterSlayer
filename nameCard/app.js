@@ -5,6 +5,11 @@ const app = Vue.createApp({
       name: 'Vue Developer',
       age: 25
     };
+  },
+  methods: {
+    incrementAgeByFive() {
+      return this.age + 5;
+    }
   }
 });
 
