@@ -16,6 +16,13 @@ const app = Vue.createApp({
 
     decrement() {
       this.counter--;
+    },
+    incrementBy(num) {
+      this.counter = this.counter + num;
+    },
+
+    decrementBy(num) {
+      this.counter = this.counter - num;
     }
 
   }
