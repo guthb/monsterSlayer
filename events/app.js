@@ -7,7 +7,9 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
-      name: ''
+      name: '',
+      confirmedName: ''
+
     };
   },
   methods: {
@@ -25,8 +27,15 @@ const app = Vue.createApp({
     decrementBy(num) {
       this.counter = this.counter - num;
     },
-    setName(event) {
-      this.name = event.target.value;
+    setName(event, lastName) {
+      this.name = event.target.value + ' ' + lastName;
+    },
+    submitForm(event) {
+      //event.preventDefault();
+      alert('Submitted!');
+    },
+    confirmedName() {
+      this.confirmedName = this.name
     }
 
   }
