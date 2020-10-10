@@ -9,7 +9,6 @@ const app = Vue.createApp({
       counter: 0,
       name: '',
       confirmedName: ''
-
     };
   },
   methods: {
@@ -34,8 +33,8 @@ const app = Vue.createApp({
       //event.preventDefault();
       alert('Submitted!');
     },
-    confirmedName() {
-      this.confirmedName = this.name
+    confirmedInput() {
+      this.confirmedName = this.name;
     }
 
   }
