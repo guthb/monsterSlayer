@@ -21,9 +21,14 @@
     <button v-on:click="decrement">Subtract</button>
     <button v-on:click="incrementBy(15)">Add 15</button>
     <button v-on:click="decrementBy(5)">Subtract 5</button>
+    <p v-once>Starting Counter: {{ counter}}</p>
     <p>Result: {{ counter }}</p>
-    <input type="text" v-on:input="setName">
-    <p>Your Name: {{ name }}</p>
+    <input type="text" v-on:input="setName($event, 'smiley')" v-on:keyup.enter="confirmedInput" />
+    <p>Your Name: {{ confirmedName }}</p>
+    <form v-on:submit.prevent="submitForm">
+      <input type="text" />
+      <button>Sign Up</button>
+    </form>
   </section>
 </body>
 
