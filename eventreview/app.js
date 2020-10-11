@@ -1,7 +1,7 @@
 // @ts-nocheck
 const app = Vue.createApp({
     data() {
-        return { userInput: '' }
+        return { userInput: '', confirmedUserInput: '' }
     },
     methods: {
         displayAlert() {
@@ -9,7 +9,11 @@ const app = Vue.createApp({
         },
         registerUser(event) {
             this.userInput = event.target.value;
+        },
+        confirmUser() {
+            this.confirmedUserInput = this.userInput;
         }
+
     }
 });
 
