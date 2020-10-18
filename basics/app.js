@@ -1,10 +1,18 @@
-const app = Vue.createapp({
+
+// @ts-ignore
+const app = Vue.createApp({
     data() {
         return {
             boxASelected: false,
             boxBSelected: false,
             boxCSelected: false
         }
+    },
+    computed: {
+        boxAClasses() {
+            return { active: this.boxASelected };
+        },
+
     },
     method: {
         boxSelected(box) {
@@ -15,8 +23,6 @@ const app = Vue.createapp({
             } else if (box === 'C') {
                 this.boxCSelected = !this.boxCselected;
             }
-
-
         }
     }
 })
