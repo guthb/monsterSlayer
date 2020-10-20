@@ -11,8 +11,8 @@ const app = Vue.createApp({
             return {
                 user1: this.inputClass === 'user1',
                 user2: this.inputClass === 'user2',
-                visible: this.paragraphIsVisiable,
-                hidden: !this.paragraphIsVisiable
+                visible: this.paragraphIsVisible,
+                hidden: !this.paragraphIsVisible
             };
         }
     },
@@ -22,4 +22,4 @@ const app = Vue.createApp({
         },
     },
 });
-app.mount("#dynamic");
+app.mount('#dynamic');
