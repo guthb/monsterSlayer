@@ -12,18 +12,16 @@
 <script>
 export default {
     data() {
-        return{
+        return {
             detailsAreVisible: false,
-            friend: [
-                {
+            friend: {
                     id: 'manuel',
                     name: 'Manueal Lorenz',
                     phone: '0123 45678 90',
                     email: 'manuel@localhost.com'
-                },
-            ]
-        }
-    },
+                },           
+            };
+        },
     methods:{
         toggleDetails() {
             this.detailsAreVisible =!this.detailsAreVisible;
