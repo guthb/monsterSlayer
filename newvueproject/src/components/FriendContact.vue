@@ -27,38 +27,27 @@ export default {
             required: true
         },
          isFavortie: {
-             type: String,
+             type: Boolean,
              required: false,
-             default: '0',
-             validator: function(value){
-                 return value ==='1' || value === '0';
-             }
+             default: false,
+            //  validator: function(value){
+            //      return value ==='1' || value === '0';
+            //  }
          }
         
     },
     data() {
         return {
             detailsAreVisible: false,
-            friend: {
-                    id: 'manuel',
-                    name: 'Manueal Lorenz',
-                    phone: '0123 45678 90',
-                    email: 'manuel@localhost.com'
-            }, 
             friendIsFavorite: this.isFavorite,     
             };
-
         },
     methods:{
         toggleDetails() {
             this.detailsAreVisible =!this.detailsAreVisible;
         },
         toggleFavorite() {
-            if (this.friendIsFavorite === '1'){
-                this.friendIsFavorite = '0';
-            } else {
-                this.friendIsFavorite ='1';
-            }
+            this.friendIsFavorite = !this.friendIsFavorite
         }
     }
 };
