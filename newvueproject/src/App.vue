@@ -8,7 +8,7 @@
                 :name="friend.name"
                 :phone-number="friend.phone"
                 :email-address="friend.email"
-                :is-favorite="true"
+                :is-favorite="friend.isFavorite"               
             ></friend-contact>
         </ul>
     </section>
@@ -23,15 +23,22 @@ export default {
                     id: 'manuel',
                     name: 'Manueal Lorenz',
                     phone: '0123 45678 90',
-                    email: 'manuel@localhost.com'
+                    email: 'manuel@localhost.com',
+                    isFavorite: true
                 },
                 {
                     id: 'julie',
                     name: 'Julie Jones',
                     phone: '0123 45678 90',
-                    email: 'julie@localhost.com'
-                }
-            ]
+                    email: 'julie@localhost.com',
+                    isFavorite: true
+                },
+            ],
+        };
+    },
+    methods: {
+        toggleFavoriteStatus(){
+            alert('This works!');
         }
     }  
 }
