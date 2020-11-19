@@ -23,7 +23,7 @@ export default {
             friends: [
                 {
                     id: 'manuel',
-                    name: 'Manueal Lorenz',
+                    name: 'Manuel Lorenz',
                     phone: '0123 45678 90',
                     email: 'manuel@localhost.com',
                     isFavorite: true
