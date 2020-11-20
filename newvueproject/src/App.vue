@@ -1,6 +1,7 @@
 <template>
     <section>
         <header><h1>My Friends</h1></header>
+        <new-friend></new-friend>
         <ul>
             <friend-contact
                 v-for="friend in friends"
