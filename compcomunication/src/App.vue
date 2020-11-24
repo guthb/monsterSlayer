@@ -1,7 +1,7 @@
 <template>
     <div>
         <active-user :username="user.name" :userage="user.age"></active-user>
-        <user-data @set-data="setUserData"></user-data>
+        <user-data @set-form="setUserData"></user-data>
     </div>
 </template>
 
@@ -12,7 +12,7 @@
            return {
                user:{                             
                     name: "New Name",
-                    age: "Age",
+                    age: 0,
                 },
            };
        },
@@ -20,8 +20,8 @@
            setUserData(name, age) {
                this.user = {
                    name: name,
-                   age: age
-               }
+                   age: +age
+               };
            }
        }
     };

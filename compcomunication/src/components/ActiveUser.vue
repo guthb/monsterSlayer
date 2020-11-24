@@ -7,9 +7,16 @@
 
 <script>
 export default {
-    props: ['username', 'userage']
+    //props: ['username', 'userage']
+    props: {
+    username: {
+      type: String,
+      required: true
+    },
+    userage: {
+      type: Number,
+      required: true
+    }
+  }
 };
 </script>
-
-<style>
-</style>
