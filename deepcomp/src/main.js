@@ -5,7 +5,7 @@ import App from './App.vue';
 import BaseBadge from './components/BaseBadge.vue';
 // import BadgeList from './components/BadgeList.vue';
 // import UserInfo from './components/UserInfo.vue';
-import BaseCard from './components/BaseBadge';
+import BaseCard from './components/BaseCard';
 
 const app = createApp(App);
 
