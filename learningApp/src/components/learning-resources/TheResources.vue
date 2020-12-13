@@ -1,9 +1,9 @@
 <template>
   <base-card>
-    <base-button @click="setSelectedTab('stored-resources')"
+    <base-button @click="setSelectedTab('stored-resources')" :mode="storedResButtonMode"
       >Stored Resources</base-button
     >
-    <base-button @click="setSelectedTab('add-resources')"
+    <base-button @click="setSelectedTab('add-resources')" :mode="addResButtonMode"
       >Add Resource</base-button
     >
   </base-card>
@@ -21,7 +21,34 @@ export default {
   },
   data() {
     return {
-      selectedTab: 'stored-resources'
+      selectedTab: 'stored-resources',
+      storedResources: [
+        {
+          id: 'official-guide',
+          title: 'Official Guide',
+          description: 'offical Vue.js docs',
+          link: 'https://vuejs.org'
+        },
+        {
+          id: 'google',
+          title: 'Google',
+          description: 'google this...',
+          link: 'https://google.com'
+        }
+      ]
+    };
+  },
+  computed:{
+    storedResButtonMode(){
+      return this.selectedTab ==='stored-resources' ? null : 'flat'
+    },
+    addResButtonMode() {
+      return this.selectedTab ==='add-resource' ? null : 'flat';
+    }
+  },
+  provide() {
+    return {
+      resources: this.storedResources
     };
   },
   methods: {
