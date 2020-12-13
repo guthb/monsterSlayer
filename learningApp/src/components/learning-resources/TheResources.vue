@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import StoredResouces from './StoredResource.vue';
+import StoredResources from './StoredResource.vue';
 import AddResource from './AddResource.vue';
 
 export default {
   components: {
-    StoredResouces,
+    StoredResources,
     AddResource
   },
   data() {
