@@ -1,23 +1,20 @@
 <template>
   <base-card>
     <base-button @click="setSelectedTab('stored-resources')" :mode="storedResButtonMode"
-      >Stored Resources</base-button
-    >
-    <base-button @click="setSelectedTab('add-resources')" :mode="addResButtonMode"
-      >Add Resource</base-button
-    >
+      >Stored Resources</base-button>
+    <base-button @click="setSelectedTab('add-resource')" :mode="addResButtonMode">Add Resource</base-button>
   </base-card>
   <component :is="selectedTab"></component>
 </template>
 
 <script>
 import StoredResouces from './StoredResource.vue';
-import AddResources from './AddResources.vue';
+import AddResource from './AddResource.vue';
 
 export default {
   components: {
     StoredResouces,
-    AddResources
+    AddResource
   },
   data() {
     return {
@@ -35,7 +32,12 @@ export default {
           description: 'google this...',
           link: 'https://google.com'
         }
-      ]
+      ],
+    };
+  },
+  provide() {
+    return {
+      resources: this.storedResources
     };
   },
   computed:{
@@ -44,17 +46,12 @@ export default {
     },
     addResButtonMode() {
       return this.selectedTab ==='add-resource' ? null : 'flat';
-    }
-  },
-  provide() {
-    return {
-      resources: this.storedResources
-    };
+    },
   },
   methods: {
     setSelectedTab(tab) {
       this.selectedTab = tab;
-    }
-  }
+    },
+  },
 };
 </script>
