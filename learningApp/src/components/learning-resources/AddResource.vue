@@ -3,8 +3,11 @@
     <template #default>
       <p> One input value is invalid, please correct.</p>
     </template>
+    <template #actions>
+      <base-button @click="confirmError">Ok</base-button>
+    </template>
   </base-dialog>
-   <base-card>
+  <base-card>
     <form @submit.prevent="submitData">
       <div class="form-control">
         <label for="title">Title</label>
@@ -26,9 +29,10 @@
 </template>
 
 <script>
+import BaseButton from '../UI/BaseButton.vue';
 import BaseDialog from '../UI/BaseDialog.vue';
 export default {
-  components: { BaseDialog },
+  components: { BaseDialog, BaseButton },
   inject: ['addResource'],
   data() {
     return{
@@ -46,9 +50,10 @@ export default {
         this.inputIsInvalid = true;
         return;
       }
-
-
       this.addResource(enteredTitle, enteredDescription, enteredUrl);
+    },
+    confirmError(){
+      this.inputIsInvalid = false;
     }
   }
 }
