@@ -1,4 +1,9 @@
 <template>
+  <base-dialog v-if="inputIsInvalid" title="Invalid Input">
+    <template #default>
+      <p> One input value is invalid, please correct.</p>
+    </template>
+  </base-dialog>
    <base-card>
     <form @submit.prevent="submitData">
       <div class="form-control">
@@ -21,8 +26,15 @@
 </template>
 
 <script>
+import BaseDialog from '../UI/BaseDialog.vue';
 export default {
+  components: { BaseDialog },
   inject: ['addResource'],
+  data() {
+    return{
+      inputIsInvalid: false,
+    };
+  },
   methods:{
     submitData(){
       const enteredTitle = this.$refs.titleInput.value;
@@ -31,7 +43,7 @@ export default {
 
       if(enteredTitle.trim() === '' || enteredDescription.trim() === '' || enteredUrl.trim() === '')
       {
-        
+        this.inputIsInvalid = true;
         return;
       }
 

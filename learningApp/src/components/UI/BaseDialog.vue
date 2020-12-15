@@ -1,5 +1,4 @@
 <template>
-
     <div></div>
     <dialog open>
         <header>
@@ -17,9 +16,7 @@
 </template>
 
 <script>
-import MagangedGoals from '../../../../deepcomp/src/components/MagangedGoals.vue'
 export default {
-  components: { MagangedGoals },
     props:{
         title: {
             type: String,
