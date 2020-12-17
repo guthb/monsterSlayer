@@ -1,4 +1,5 @@
-<template>
+<template to="body">
+<telport>
     <div @click="$emit('close')"></div>
     <dialog open>
         <header>
@@ -15,6 +16,7 @@
             </slot> 
         </menu>
     </dialog>
+</telport>
 </template>
 
 <script>
