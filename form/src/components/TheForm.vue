@@ -57,7 +57,7 @@ export default {
   data() {
     return{
       userName: '',
-    }
+    };
   },
   methods: {
     submitForm() {
