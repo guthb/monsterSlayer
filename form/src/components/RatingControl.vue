@@ -1,12 +1,37 @@
 <template>
     <ul>
-        <li><button>Poor</button></li>
-        <li><button>Average</button></li>
-        <li><button>Great</button></li>
+        <li :class="{active: activeOption === 'poor'}"><button type="button" @click="activate('poor')">Poor</button></li>
+        <li :class="{active: activeOption === 'average'}"><button type="button" @click="activate('average')">Average</button></li>
+        <li :class="{active: activeOption === 'great'}"><button type="button" @click="activate('great')">Great</button></li>
     </ul>
 </template>
 
+
+<script>
+export default {
+    data() {
+        return{
+            activeOption: null
+        };
+    },
+    methods:{
+        activate(option) {
+            this.activeOption = option;
+        }
+    }
+    
+}
+</script>
+
 <style  scoped>
+.active {
+    border-color: purple;
+}
+
+.active-button {
+    color: purple;
+}
+
 ul {
     list-style: none;
     margin: 0.5rem 0;
@@ -20,6 +45,14 @@ li {
     padding: 1rem;
     display: flex;
     justify-content: center;
-    align-itmes: center;
+    align-items: center;
 }
+
+button {
+    font: inherit;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 </style>
