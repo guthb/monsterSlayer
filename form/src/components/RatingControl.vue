@@ -51,7 +51,7 @@ ul {
 
 li {
     margin: 0 1rem;
-    border: 1 px solid #ccc;
+    border: 1 px solid red;
     padding: 1rem;
     display: flex;
     justify-content: center;
