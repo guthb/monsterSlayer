@@ -25,7 +25,7 @@ export default {
 
     methods:{
         activate(option) {
-            this.activeOption = option;
+            // this.activeOption = option;
             this.$emit('update:modelValue', option);
         },
     }
@@ -38,7 +38,7 @@ export default {
     border-color: purple;
 }
 
-.active-button {
+.active button {
     color: purple;
 }
 
