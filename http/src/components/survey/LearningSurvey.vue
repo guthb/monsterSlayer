@@ -60,6 +60,8 @@ export default {
         rating: this.chosenRating,
       });
 
+      fetch('https://some-backend-url.com')
+
       this.enteredName = '';
       this.chosenRating = null;
     },
