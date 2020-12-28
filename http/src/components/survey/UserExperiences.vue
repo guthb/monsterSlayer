@@ -33,15 +33,16 @@ export default {
   methods:{
     loadExperiences(){
       //firebase
-      fetch('https://some-backend-url.com/surveys.json', {
-        method: 'GET',
-        headers: {
-          'Content-Type':'application/json'
-        },
-        
+      fetch('https://some-backend-url.com/surveys.json').then(function(response) {
+        if(response.ok){
+          return response.json();
+        }
+      }
+      ).then(function(data) {
+        console.log(data);
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
