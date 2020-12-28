@@ -66,7 +66,7 @@ export default {
         headers: {
           'Content-Type':'application/json'
         },
-        body: JSON.stingify({name: tis.userName, rating: this.chosenRating}),
+        body: JSON.stingify({name: this.enteredName, rating: this.chosenRating}),
       });
 
       this.enteredName = '';
