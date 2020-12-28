@@ -33,14 +33,24 @@ export default {
   methods:{
     loadExperiences(){
       //firebase
-      fetch('https://some-backend-url.com/surveys.json').then(function(response) {
-        if(response.ok){
-          return response.json();
+      fetch('https://some-backend-url.com/surveys.json')
+        .then((response) => {
+          if(response.ok){
+            return response.json();
         }
-      }
-      ).then(function(data) {
+      })
+      .then((data) => {
         console.log(data);
-      });
+        const results = [];
+        for (const id in data){
+          results.push({
+            id: id, 
+            name: data[id].name, 
+            rating: data[id].rating,
+          )};
+        }
+        this.results = results;
+      ));
     },
   },
 };
