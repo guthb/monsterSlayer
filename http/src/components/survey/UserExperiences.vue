@@ -5,7 +5,8 @@
       <div>
         <base-button @click="loadExperiences">Load Submitted Experiences</base-button>
       </div>
-      <ul>
+      <p v-if="isLoading">Loading ...</p>
+      <ul v-else >
         <survey-result
           v-for="result in results"
           :key="result.id"
@@ -27,11 +28,13 @@ export default {
   },
   data() {
     return{
-      results: []
+      results: [],
+      isLoading: false
     }
   },
   methods:{
     loadExperiences(){
+      this.isLoading =true;
       //firebase
       fetch('https://some-backend-url.com/surveys.json')
         .then((response) => {
@@ -40,6 +43,7 @@ export default {
         }
       })
       .then((data) => {
+        this.isLoading = false;
         console.log(data);
         const results = [];
         for (const id in data){
