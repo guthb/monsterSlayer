@@ -20,7 +20,7 @@ export default {
   inject: [users, teams],
   props:['teamId'],
   components: {
-    UserItem
+    UserItem,
   },
   data() {
     return {
