@@ -5,6 +5,7 @@ import App from './App.vue';
 import TeamsList from './components/teams/TeamList.vue';
 import UsersList from './components/users/UsersList.vue';
 import TeamMembers from './components/teams/TeamMembers.vue';
+import NotFound from './components/nav/NotFound.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -14,7 +15,8 @@ const router = createRouter({
         { path: '/teams', component: TeamsList, alias:'/' },
         { path: '/teams', components: UsersList },
         { path: '/teams/:teamId', component: TeamMembers, props: true },
-        { path: '/:catchAll(.*)'}
+        //{ path: '/:catchAll(.*)', redirect: '/teams'}
+        { path: '/:catchAll(.*)', component: NotFound}
     ],
     linkActiveClass: 'active'
 });
