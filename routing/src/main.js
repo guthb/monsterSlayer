@@ -36,7 +36,16 @@ const router = createRouter({
         //{ path: '/:catchAll(.*)', redirect: '/teams'}
         { path: '/:notFoundl(.*)', component: NotFound }
     ],
-    linkActiveClass: 'active'
+    linkActiveClass: 'active',
+    scrollBehavior(to, from, savePosition) { 
+        console.log(to, from, savedPosition);
+        // this.$route
+        if (savePosition) { 
+            return savePosition
+        }
+        return { letft:0, top:0};
+
+    }
 });
 const app = createApp(App);
 
