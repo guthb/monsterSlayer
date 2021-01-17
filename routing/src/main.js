@@ -37,7 +37,7 @@ const router = createRouter({
         { path: '/:notFoundl(.*)', component: NotFound }
     ],
     linkActiveClass: 'active',
-    scrollBehavior(to, from, savePosition) { 
+    scrollBehavior(_, _2, savePosition) { 
         console.log(to, from, savedPosition);
         // this.$route
         if (savePosition) { 
@@ -51,6 +51,11 @@ const router = createRouter({
 router.beforeEach(function (to, from, next) {
     console.log('Global beforeEach');
     console.log(to, from);
+    // if (to.name === 'team-members') {
+    //     next();
+    // } else {
+    //     next({ name: 'team-members', params: { teamId: 't2' } });  //next true confirms & this is an infinite loop
+    // }
     next();
  });
 
