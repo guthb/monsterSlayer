@@ -30,7 +30,13 @@ const router = createRouter({
             path: '/users', components: {
                 default: UsersList,
                 footer: UsersFooter
+            },
+            beforeEnter(to, from, next) { 
+                console.log('users beforeEnter')
+                console.log(to, from)
+                next();
             }
+
         },
         //{ path: '/teams/:teamId', component: TeamMembers, props: true },
         //{ path: '/:catchAll(.*)', redirect: '/teams'}
