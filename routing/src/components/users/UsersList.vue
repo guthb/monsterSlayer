@@ -37,7 +37,7 @@ export default {
      if ( this.changesSaved){
        next();
      } else {
-       const userWantstoLeave= promt('you have unsaved changes')
+       const userWantstoLeave = confirm('you have unsaved changes')
        next(userWantstoLeave);
      }
   },
