@@ -27,9 +27,19 @@ export default {
     }
   },
   beforeRouteEnter(to, from, next) {
-    console.log('UserList' 'Cmp' 'beforeRouteEnter')
+    console.log('UserList' 'Component' 'beforeRouteEnter');
     console.log(to, from);
     next();
+  },
+  beforeRouteLeave(to, from, next){
+     console.log('UserList' 'Component' 'beforeRouteLeave');
+     console.log(to, from);
+     if ( this.changesSaved){
+       next();
+     } else {
+       const userWantstoLeave= promt('you have unsaved changes')
+       next(userWantstoLeave);
+     }
   },
   unmounted() {
     console.log ('unmounted');
