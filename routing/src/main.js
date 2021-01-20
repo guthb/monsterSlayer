@@ -63,7 +63,14 @@ router.beforeEach(function (to, from, next) {
     //     next({ name: 'team-members', params: { teamId: 't2' } });  //next true confirms & this is an infinite loop
     // }
     next();
- });
+});
+ 
+
+router.afterEach(function (to, from) { 
+    //sending anlytics
+    console.log('Global afterEach')
+    console.log(to, from);
+})
 
 const app = createApp(App);
 
