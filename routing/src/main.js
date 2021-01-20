@@ -2,12 +2,12 @@ import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 import App from './App.vue';
-import TeamsList from './components/teams/TeamList.vue';
-import UsersList from './components/users/UsersList.vue';
+import TeamsList from './pages/TeamList.vue';
+import UsersList from './pages/UsersList.vue';
 import TeamMembers from './components/teams/TeamMembers.vue';
-import NotFound from './components/nav/NotFound.vue';
-import TeamsFooter from './components/teams/TeamsFooter.vue';
-import UserFooter from './components/users/UserFooter.vue';
+import NotFound from './pages/NotFound.vue';
+import TeamsFooter from './pages/TeamsFooter.vue';
+import UserFooter from './pages/UserFooter.vue';
 
 const router = createRouter({
     history: createWebHistory(),
