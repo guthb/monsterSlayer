@@ -63,6 +63,7 @@ button:active {
   height: 8rem;
   background-color: #290033;
   margin-bottom: 2rem;
+  transition: transform 0.3s ease-out;
 }
 .container {
   max-width: 40rem;
