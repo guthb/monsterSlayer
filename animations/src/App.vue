@@ -79,20 +79,20 @@ button:active {
 
 .animate {
   /* transform: translateX(-150px); */
-  animation: slide-fade .3s ease-out;
+  animation: slide-fade .3s ease-out forwards;
 }
 
 @keyframes slide-fade {
   0% {
-    transform: translateX(0), scale(1);
+    transform: translateX(0) scale(1);
   }
 
   70% {
-    transform: translateX(-120px), scale(1.1);
+    transform: translateX(-120px) scale(1.1);
   }
 
   100% {
-    transform: translateX(-150px), scale(1);
+    transform: translateX(-150px) scale(1);
   }
 
 }
