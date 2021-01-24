@@ -3,12 +3,14 @@
     <div class="block" :class="{animate: animatedBlock}"></div>
     <button @click="animateBlock">Animate</button>
   </div>
-  <div>
-    <transition>
-      <p v-if="paraIsVisible">This is testing paragraph visibility</p>
-    </transition> 
-    <button @click="toggleParagraph">Toggle Paragraph</button>
-  </div>
+  <div class="container">
+    
+      <transition>
+        <p v-if="paraIsVisible">This is testing paragraph visibility</p>
+      </transition> 
+      <button @click="toggleParagraph">Toggle Paragraph</button>
+    
+  </div>  
   <base-modal @close="hideDialog" v-if="dialogIsVisible">
     <p>This is a test dialog!</p>
     <button @click="hideDialog">Close it!</button>
