@@ -4,7 +4,7 @@
     <button @click="animateBlock">Animate</button>
   </div>
   <div class="container">  
-      <transition>
+      <transition name="para">
         <p v-if="paraIsVisible">This is testing paragraph visibility</p>
       </transition> 
       <button @click="toggleParagraph">Toggle Paragraph</button>  
