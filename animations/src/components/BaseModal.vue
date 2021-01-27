@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop" @click="$emit('close')"></div>
+  <div v-if='open'class="backdrop" @click="$emit('close')"></div>
   <transition name="modal">
   <dialog open v-if="open">
     <slot></slot>
@@ -47,8 +47,8 @@ dialog {
   animation: modal 0.3s ease-out;
 }
 
-.modal-enter-to{
-
+.modal-leave-actice{
+  animation: modal 0.3s ease-in reverse;
 }
 
 @keyframes modal {
