@@ -9,10 +9,14 @@
       </transition> 
       <button @click="toggleParagraph">Toggle Paragraph</button>  
   </div>   
-    <base-modal @close="hideDialog" :open='dialogIsVisible'>
-      <p>This is a test dialog!</p>
-      <button @click="hideDialog">Close it!</button>
-    </base-modal>
+  <div class="container">
+    <button @click="showUsers" v-if="!usersAreVisible">Show Users</button>
+    <button @click="hideUsers" v-if="usersAreVisible">Hide Users</button>
+  </div>
+  <base-modal @close="hideDialog" :open='dialogIsVisible'>
+    <p>This is a test dialog!</p>
+    <button @click="hideDialog">Close it!</button>
+  </base-modal>
   <div class="container">
     <button @click="showDialog">Show Dialog</button>
   </div>
@@ -23,7 +27,9 @@ export default {
   data() {
     return { 
       animatedBlock: false,
-      dialogIsVisible: false 
+      dialogIsVisible: false, 
+      paraIsVisible: false,
+      usersAreVisable: false,
     };
   },
   methods: {
@@ -36,6 +42,12 @@ export default {
     hideDialog() {
       this.dialogIsVisible = false;
     },
+    showUsers() {
+      this.usersAreVisible = true;
+    },
+    hideUsers() {
+      this.usersAreVisable =false;
+    }
   },
 };
 </script>
@@ -95,7 +107,7 @@ button:active {
 
 .para-enter-active {
   /* transition: all 0.3s ease-out; */
-  animation: : slide-scale 0.3s ease-out;
+  animation: slide-scale 0.3s ease-out;
 }
 
 .para-enter-to {
