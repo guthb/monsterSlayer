@@ -83,7 +83,7 @@ export default {
       this.usersAreVisible =false;
     },
     toggleParagraph() {
-      this.paraIsVisible = !this.paraIsVisiblerue;
+      this.paraIsVisible = !this.paraIsVisible;
     }
   },
 };
