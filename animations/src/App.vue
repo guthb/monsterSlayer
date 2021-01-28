@@ -4,7 +4,7 @@
     <button @click="animateBlock">Animate</button>
   </div>
   <div class="container">  
-      <transition name="para">
+      <transition name="para" @before-enter="beforeEnter">
         <p v-if="paraIsVisible">This is testing paragraph visibility</p>
       </transition> 
       <button @click="toggleParagraph">Toggle Paragraph</button>  
@@ -35,6 +35,9 @@ export default {
     };
   },
   methods: {
+    beforeEnter() {
+      console.log('beforeEnter')
+    },
     animateBlock() {
       this.animatedBlock = true;
     },
