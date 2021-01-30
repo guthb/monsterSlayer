@@ -66,12 +66,23 @@ export default {
        console.log(el)
     },
     beforeLeave(el) {
-      console.log('beforeLeave')
-      console.log(el)
+      console.log('beforeLeave');
+      console.log(el);
+      el.style.opacity =1;
+
     },
-    leave(el){
+    leave(el, done){
      console.log('leave')
      console.log(el)
+      let round = 1;
+       const interval = setInterval(function() {
+         el.style.opacity = 1 - round * 0.1;
+         round++;
+         if (round > 100) {
+           clearInterval(interval);
+           done();
+         }
+       }, 20);
     },
     afterLeave(el){
      console.log('afterLeave')
