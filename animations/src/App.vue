@@ -12,6 +12,8 @@
       @before-leave="beforeLeave"
       @leave="leave"
       @after-leave="afterLeave"
+      @enter-cancelled="enterCancelled"
+      @leave-cancelled="leaveCancelled"
       >
         <p v-if="paraIsVisible">This is testing paragraph visibility</p>
       </transition> 
@@ -40,9 +42,19 @@ export default {
       dialogIsVisible: false, 
       paraIsVisible: false,
       usersAreVisible: false,
+      enterInterval: null;
+      leaveInterval: null;
     };
   },
   methods: {
+    enterCancelled(el) {
+       console.log(el)
+      clearInterval(this.enterInterval);
+    },
+    leaveCancelled(el) {
+       console.log(el)
+      clearInterval(this.leaveInterval);
+    }
     beforeEnter(el) {
       console.log('beforeEnter')
        console.log(el)
@@ -52,11 +64,11 @@ export default {
       console.log('enter')
        console.log(el)
        let round = 1;
-       const interval = setInterval(function() {
+       this.enterInterval= setInterval(() => {
          el.style.opacity = round * 0.1;
          round++;
          if (round > 100) {
-           clearInterval(interval);
+           clearInterval(this.enterInterval);
            done();
          }
        }, 20);
@@ -75,11 +87,11 @@ export default {
      console.log('leave')
      console.log(el)
       let round = 1;
-       const interval = setInterval(function() {
+       this.leaveInterval = setInterval(() => {
          el.style.opacity = 1 - round * 0.1;
          round++;
          if (round > 100) {
-           clearInterval(interval);
+           clearInterval(this.leaveInterval);
            done();
          }
        }, 20);
