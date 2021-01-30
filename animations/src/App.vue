@@ -48,7 +48,7 @@ export default {
        console.log(el)
        el.style.opacity =0;
     },
-    enter(el) {
+    enter(el, done) {
       console.log('enter')
        console.log(el)
        let round = 1;
@@ -57,6 +57,7 @@ export default {
          round++;
          if (round > 100) {
            clearInterval(interval);
+           done();
          }
        }, 20);
     },
