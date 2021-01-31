@@ -20,10 +20,10 @@
       <button @click="toggleParagraph">Toggle Paragraph</button>  
   </div>   
   <div class="container">
-  <transition name="fade-button" mode="out-in">  
-    <button @click="showUsers" v-if="!usersAreVisible">Show Users</button>
-    <button @click="hideUsers" v-else>Hide Users</button>
-  </transition>
+    <transition name="fade-button" mode="out-in">  
+      <button @click="showUsers" v-if="!usersAreVisible">Show Users</button>
+      <button @click="hideUsers" v-else>Hide Users</button>
+    </transition>
   </div>
   <base-modal @close="hideDialog" :open='dialogIsVisible'>
     <p>This is a test dialog!</p>
