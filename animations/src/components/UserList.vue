@@ -3,7 +3,7 @@
         <li v-for="user in users" :key="user" @click="removeUser(user)">{{ user}}</li>
     </ul>
     <div>
-        <input type="text" name="" id="">
+        <input type="text" ref="userNameInput"/>
         <button @click="addUser">Add User</button>
     </div>
 </template>
@@ -18,7 +18,10 @@ export default {
         }
     },
     methods: {
-        addUser(){},
+        addUser(){
+            const enteredUserName = this.$refs.userNameInput.value;
+            this.users.unshift(enteredUserName);
+        },
         removeUser(user) {
             this.users = this.users.filter( usr => usr !==user);
         }
