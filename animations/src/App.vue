@@ -129,6 +129,19 @@ export default {
 };
 </script>
 
+<style scoped>
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    text-align: center;
+  }
+</style>
+
 <style>
 * {
   box-sizing: border-box;
