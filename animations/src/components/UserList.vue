@@ -1,7 +1,9 @@
 <template>
-    <ul>
+    
+        <transition-group tag="ul" name="user-list">
         <li v-for="user in users" :key="user" @click="removeUser(user)">{{ user}}</li>
-    </ul>
+        </transition-group>
+   
     <div>
         <input type="text" ref="userNameInput"/>
         <button @click="addUser">Add User</button>
