@@ -18,9 +18,9 @@
       @enter-cancelled="enterCancelled"
       @leave-cancelled="leaveCancelled"
       >
-        <p v-if="paraIsVisible">This is testing paragraph visibility</p>
+        <p v-if="paraIsVisible" >This is testing paragraph visibility</p>
       </transition> 
-      <button @click="toggleParagraph">Toggle Paragraph</button>  
+      <button @click="toggleParagraph" >Toggle Paragraph</button>  
   </div>   
   <div class="container">
     <transition name="fade-button" mode="out-in">  
@@ -49,8 +49,8 @@ export default {
       dialogIsVisible: false, 
       paraIsVisible: false,
       usersAreVisible: false,
-      enterInterval: null;
-      leaveInterval: null;
+      enterInterval: null,
+      leaveInterval: null,
     };
   },
   methods: {
@@ -61,7 +61,7 @@ export default {
     leaveCancelled(el) {
        console.log(el)
       clearInterval(this.leaveInterval);
-    }
+    },
     beforeEnter(el) {
       console.log('beforeEnter')
        console.log(el)

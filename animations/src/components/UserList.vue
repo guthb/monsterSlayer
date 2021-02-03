@@ -45,7 +45,7 @@ export default {
   }
 
   .user-list-enter-from {
-    opacity: : 0;
+    opacity: 0;
     transform: translateX(-30px);
   }
 
@@ -65,11 +65,13 @@ export default {
   }
 
   .user-list-enter-from {
-    opacity: : 0;
+    opacity: 0;
     transform: translateX(30px);
   }
 
   .user-list-move {
     transition: transform 0.8s ease;
   }
+
+
 </style>
