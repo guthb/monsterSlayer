@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import LearningResource from '../../../learningApp/src/components/learning-resources/LearningResource.vue'
+//import LearningResource from '../../../learningApp/src/components/learning-resources/LearningResource.vue'
 export default {
-  components: { LearningResource },
+  // components: { LearningResource },
     data() {
         return{
             users: ['moe', 'larry', 'curly', 'shemp', 'curly-joe']
