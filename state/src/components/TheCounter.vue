@@ -9,5 +9,5 @@ export default {
             return this.$store.state.counter;
         },
     },
-},
+};
 </script>
