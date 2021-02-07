@@ -1,7 +1,7 @@
 <template>
   <base-container title="Vuex">
     <the-counter></the-counter>
-    <button @click="addOne">Add 1</button> 
+    <button @click="addOne">Add 11</button> 
     <change-counter></change-counter> 
   </base-container>
 </template>
