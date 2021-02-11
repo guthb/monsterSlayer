@@ -21,7 +21,9 @@ const store = createStore({
     },
     actions: {
         increment(context) { 
-            context.commit('increment')
+            setTimeout(function () {
+                context.commit('increment')  //async
+            }, 2000);
         },
     },
     getters: {
