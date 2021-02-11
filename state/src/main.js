@@ -12,12 +12,17 @@ const store = createStore({
     },
     mutations: {
         increment(state) { 
-            state.counter = state.counter + 2;
+            state.counter = state.counter + 2; //has to be snyc
         },
         increase(state, payload) { 
             state.counter = state.counter + payload.value;
         },
         
+    },
+    actions: {
+        increment(context) { 
+            context.commit('increment')
+        },
     },
     getters: {
         finalCounter(state) {
