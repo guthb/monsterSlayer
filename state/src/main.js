@@ -52,7 +52,10 @@ const store = createStore({
             }
             return finalCounter;
         
-        }
+        },
+        userIsAuthenticated(state) {
+            return state.isLoggedIn;
+         }
     }
 })
 
