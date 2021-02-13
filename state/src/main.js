@@ -7,7 +7,8 @@ import App from './App.vue';
 const store = createStore({
     state() { 
         return {
-            counter: 0
+            counter: 0,
+            isLoggedIn: false
         };
     },
     mutations: {
@@ -27,6 +28,9 @@ const store = createStore({
         },
         increase(context, payload) { 
             context.commit('increase', payload)
+        },
+        setAuth(state, payload) { 
+            state.isLoggedIn = payload.isAuth;
         }
     },
     getters: {
