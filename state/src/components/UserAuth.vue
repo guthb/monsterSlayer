@@ -1,6 +1,6 @@
 <template>
-    <button @click="login">Login</button>
-    <button @click="logout">LogOut</button>
+    <button @click="login" v-if="!isAuth">Login</button>
+    <button @click="logout" v-if="isAuth">LogOut</button>
 </template>
 
 <script>
@@ -11,6 +11,11 @@ export default {
         },
         logout() {
             this.$store.dispatch('logout');
+        }
+    },
+    computed: {
+        isAuth() {
+            return this.$store.getters.userIsAuthenticated;
         }
     }
 }

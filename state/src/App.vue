@@ -1,5 +1,5 @@
 <template>
-  <base-container title="Vuex">
+  <base-container title="Vuex" v-if="isAuth">
     <the-counter></the-counter>
     <favorite-value></favorite-value>
     <button @click="addOne">Add 10</button> 
@@ -30,6 +30,11 @@ export default {
   //     return this.$store.state.counter;
   //   }
   // },
+  computed: {
+        isAuth() {
+            return this.$store.getters.userIsAuthenticated;
+        },
+    },
   methods: {
     addOne(){
       //this.$store.dispatch('increase', {value: 10})
