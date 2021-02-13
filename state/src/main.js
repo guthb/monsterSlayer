@@ -18,7 +18,9 @@ const store = createStore({
         increase(state, payload) { 
             state.counter = state.counter + payload.value;
         },
-        
+        setAuth(state, payload) { 
+            state.isLoggedIn = payload.isAuth;
+        }       
     },
     actions: {
         increment(context) { 
@@ -29,9 +31,12 @@ const store = createStore({
         increase(context, payload) { 
             context.commit('increase', payload)
         },
-        setAuth(state, payload) { 
-            state.isLoggedIn = payload.isAuth;
-        }
+        login(context) { 
+            context.commit('setAuth',{ isAuth: true });
+        },
+        logout(context) { 
+            context.commit('setAuth', { isAuth: false });
+        },
     },
     getters: {
         finalCounter(state) {
