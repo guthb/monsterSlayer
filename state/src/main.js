@@ -48,6 +48,9 @@ const counterModule = {
 }
 
 const store = createStore({
+    modules: {
+        counter: counterModule
+    },
     state() { 
         return {
             isLoggedIn: false
