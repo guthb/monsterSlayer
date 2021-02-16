@@ -12,7 +12,7 @@ export default {
         // }
         //...mapActions(['increment', 'increase'])
 
-        ...mapActions('numbers',{
+        ...mapActions('counter',{
             inc: 'increment',
             increase: 'increase'
         })

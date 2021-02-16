@@ -39,7 +39,7 @@ export default {
     addOne(){
       //this.$store.dispatch('increase', {value: 10})
       this.$store.dispatch({
-        type: 'numbers/increase',
+        type: 'counter/increase',
         value: 10
       });
 
