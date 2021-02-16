@@ -5,6 +5,7 @@ import {createStore} from 'vuex'
 import App from './App.vue';
 
 const counterModule = {
+    namespaced: true,
     state() { 
         return {
              counter: 0,
@@ -31,7 +32,10 @@ const counterModule = {
         },
     },
     getters: {
-         finalCounter(state) {
+        testauth(state) { 
+            return state.isLoggedIn;
+        },
+        finalCounter(state) {
             return state.counter * 3;
         },
         normalizedCounter(_, getters) { 

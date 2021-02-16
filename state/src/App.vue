@@ -39,7 +39,7 @@ export default {
     addOne(){
       //this.$store.dispatch('increase', {value: 10})
       this.$store.dispatch({
-        type: 'increase',
+        type: 'numbers/increase',
         value: 10
       });
 
