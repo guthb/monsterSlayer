@@ -47,5 +47,17 @@ export default {
         removeFromCart(context,payload){ 
             context.commit('removeProductFromCart', payload);
         }
+    },
+    getters: {
+        items(state){
+            return state.items;
+        },
+        totalSum(state){
+            return state.total;
+        },
+        quantity(state){
+            return state.qnty;
+        },
+
     }
 }
