@@ -1,5 +1,6 @@
 export default {
-    state () {
+  namespaced: true,  
+  state () {
         return {
             items: [], 
             total: 0, 
