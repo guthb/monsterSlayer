@@ -31,10 +31,9 @@ export default {
   },
   methods: {
     remove() {
-      //this.removeProductFromCart(this.prodId);
       this.$store.dispatch('cart/removeFromCart', {productId: this.prodId});
-    }
-  }
+    },
+  },
 };
 </script>
 

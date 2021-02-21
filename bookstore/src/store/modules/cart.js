@@ -31,7 +31,7 @@ export default {
           },
       
           removeProductFromCart(state, payload) {
-              const prodId = payload.prodId
+            const prodId = payload.prodId
             const productInCartIndex = state.items.findIndex(
               (cartItem) => cartItem.productId === prodId
             );
@@ -49,6 +49,7 @@ export default {
           context.commit('addProductToCart', product);
         },
         removeFromCart(context,payload){ 
+            console.log("payload", payload)
             context.commit('removeProductFromCart', payload);
         }
     },
