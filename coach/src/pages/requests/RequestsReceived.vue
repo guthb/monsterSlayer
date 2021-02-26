@@ -1,3 +1,3 @@
 <template>
-    REQUESTs
+  REQUESTS
 </template>
