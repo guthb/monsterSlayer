@@ -1,6 +1,6 @@
 import { createStore } from 'vuex';
 
-import { coachesModule } from './modules/coaches/index.js';
+import  coachesModule  from './modules/coaches/index.js';
 
 const store = createStore({
     modules: {
@@ -9,5 +9,6 @@ const store = createStore({
 });
 
 export default store;
+
 
 
