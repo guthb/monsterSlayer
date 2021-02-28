@@ -8,11 +8,11 @@
             <router-link to="/register">Register as Coach</router-link>
         </div>
         <ul v-if="hasCoaches">
-            <li for v-for="coach in filteredCoaches" :key ="coach.id">
+            <li v-for="coach in filteredCoaches" :key ="coach.id">
                 {{coach.firstName}}
             </li>
         </ul>
-        <h3 v-else>No Caoches Found</h3>
+        <h3 v-else>No Coaches Found</h3>
     </section>
 </template>
 
