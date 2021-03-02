@@ -3,6 +3,7 @@
         FILTER
     </section>
     <section>
+        <base-card>
         <div class="controls">
             <button>Refresh</button>
             <router-link to="/register">Register as Coach</router-link>
@@ -19,15 +20,18 @@
             </coach-item>
         </ul>
         <h3 v-else>No Coaches Found</h3>
+        </base-card>
     </section>
 </template>
 
 <script>
 import CoachItem from '../../components/coaches/CoachItem.vue';
+import BaseCard from '../../components/ui/BaseCard.vue';
 
 export default {
     components: {
-        CoachItem
+        CoachItem,
+        BaseCard
     },
     computed:{
         filteredCoaches() {
