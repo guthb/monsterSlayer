@@ -10,6 +10,7 @@
 <script>
 export default {
     props:{
+      //object form of props
         link:{
             type: Boolean,
             required: false,

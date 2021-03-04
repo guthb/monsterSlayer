@@ -35,7 +35,7 @@ export default {
             return this.selected.coach.firstName + ' ' + this.selectedCoach.lastName;
         },
         areas() {
-            return this.selectedCoach.firstName + ' ' + this.selectedCoach.lastName;
+            return this.selectedCoach.areas;
         },
         rate() {
             return this.selectedCoach.areas;
@@ -44,7 +44,7 @@ export default {
             return this.selectedCoach.hourlyRate;
         },
         contactLink() {
-            return this.$route.path + '/' + this.id + '/comtact';
+            return this.$route.path + '/' + this.id + '/contact';
         }
     },
     created() {
