@@ -26,14 +26,14 @@
 
 <script>
 import CoachItem from '../../components/coaches/CoachItem.vue';
-import BaseCard from '../../components/ui/BaseCard.vue';
+// import BaseCard from '../../components/ui/BaseCard.vue';
 import CoachFilter from '../../components/coaches/CoachFilter.vue'
 
 
 export default {
     components: {
         CoachItem,
-        BaseCard,
+        // BaseCard,
         CoachFilter
     },
     data(){
