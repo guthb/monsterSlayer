@@ -38,7 +38,7 @@ export default {
     },
     data(){
         return {
-            activefilters: {
+            activeFilters: {
                 frontend: true,
                 backend: true,
                 career: true
@@ -47,7 +47,19 @@ export default {
     },
     computed:{
         filteredCoaches() {
-            return this.$store.getters['coaches/coaches'];
+           const coaches = this.$store.getters['coaches/coaches'];
+           return coaches.filter(coach => {
+               if (this.activeFilters.frontend && coach.areas.includes('frontend')){
+                   return true;
+               }
+               if (this.activeFilters.backend && coach.areas.includes('backend')){
+                   return true;
+               }
+               if (this.activeFilters.career && coach.areas.includes('career')){
+                   return true;
+               }
+               return false;
+           });
         },
         hasCoaches() {
             return this.$store.getters['coaches/hasCoaches'];
@@ -55,7 +67,7 @@ export default {
     },
     methods: {
         setFilters(updateFilters){
-
+            this.activeFilters = updatedFilters;
         }
     }
 };
