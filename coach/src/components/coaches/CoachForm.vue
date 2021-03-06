@@ -20,15 +20,15 @@
             <h3>Areas of Expertise</h3>
             <div>
                 <input type="checkbox" id="frontend" value="frontend" v-model="areas">
-                <lable for="frontend">Frontend Development</lable>
+                <label for="frontend">Frontend Development</label>
             </div>
              <div>
                 <input type="checkbox" id="backend" value="backend" v-model="areas">
-                <lable for="backend">Backend Development</lable>
+                <label for="backend">Backend Development</label>
             </div>
              <div>
                 <input type="checkbox" id="career" value="career" v-model="areas">
-                <lable for="career">Career Advisory</lable>
+                <label for="career">Career Advisory</label>
             </div>
         </div>
         <base-button>Register</base-button>
