@@ -1,5 +1,5 @@
 <template>
-    <button v-if="!link">
+    <button v-if="!link" :class="mode">
         <slot></slot>
     </button>
     <router-link v-else :to="to" :class="mode">
@@ -11,6 +11,11 @@
 export default {
     props:{
       //object form of props
+          mode:{
+              type: String,
+              required: false,
+              default: null
+          },
         link:{
             type: Boolean,
             required: false,
@@ -20,11 +25,6 @@ export default {
             type: String,
             required: false,
             default: '/'
-        },
-        mode:{
-            type: String,
-            required: false,
-            default: null
         }
     }
 }
