@@ -1,8 +1,10 @@
 export default {
-    requests(state){
-        return state.requests;
+    requests(state, getters, routState, rootGetters) {
+        const coachId = rootGetters.userId;
+        console.log(state.requests)
+        return state.requests.filter(req => req.coachId === coachId);
     },
-    hasrRequests(state){
-        return state.requests && state.requests.length >0;
+    hasrRequests(state, getters){
+        return getters.requests && getters.requests.length >0;
     } 
 };
