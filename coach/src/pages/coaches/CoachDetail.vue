@@ -17,7 +17,7 @@
   <section>
       <base-card>
       <base-badge v-for="area in areas" :key="area" :type="area" :title="area"></base-badge>
-      <p>{{ description}}</p>
+      <p>{{ description }}</p>
       </base-card>
   </section>
 </template>
@@ -27,7 +27,7 @@ export default {
     props:['id'],
     data() {
         return {
-            selectedCoach: null
+            selectedCoach: null,
         };
     },
     computed: {

@@ -1,9 +1,9 @@
 <template>
     <li>
         <div>
-            <a :href="emailLink">{{email}}</a>
+            <a :href="emailLink">{{ email }}</a>
         </div>
-        <p>{{ message}}</p>
+        <p>{{ message }}</p>
     </li>
 </template>
 

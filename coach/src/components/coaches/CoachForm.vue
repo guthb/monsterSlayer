@@ -48,23 +48,23 @@ export default {
         return{
             firstName: {
               val:'',
-              isValid:true
+              isValid: true
             },
             lastName: {
               val:'',
-              isValid:true
+              isValid: true
             },
             description: {
               val:'',
-              isValid:true
+              isValid: true
             },
             rate: {
               val: null,
-              isValid:true
+              isValid: true
             },
             areas:{
               val:[],
-              isValid:true
+              isValid: true
             },
             formIsValid: true
         }

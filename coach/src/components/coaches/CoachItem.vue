@@ -21,11 +21,11 @@ export default {
         },
         coachContactLink() {
             //return '/coaches/' + this.id + '/contact' // /coaches/c1/contact
-            return this.$route.path + '/' + this.id + '/contact' // /coaches/c1/contact
+            return this.$route.path + '/' + this.id + '/contact'; // /coaches/c1/contact
         },
         coachDetailsLink() {
             //return '/coaches/' + this.id  // /contact/c1
-            return this.$route.path + '/' + this.id  // /contact/c1
+            return this.$route.path + '/' + this.id;  // /contact/c1
         }
     }
 }
