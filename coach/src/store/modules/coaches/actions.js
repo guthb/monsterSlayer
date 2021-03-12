@@ -1,5 +1,5 @@
 export default {
-    registerCoach(context, data) {
+    async egisterCoach(context, data) {
         const userId = context.rootGetters.userId;
         const coachData = {
             //id: context.rootGetters.userId,
