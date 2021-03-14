@@ -8,7 +8,7 @@
            <label for="message">Message</label>
            <textarea id="message" rows="5" v-model.trim="message"></textarea>
        </div>
-       <p class="errors" v-if="formIsValid">Please enter vaild email</p>
+       <p class="errors" v-if="!formIsValid">Please enter vaild email</p>
        <div class = "actions">
            <base-button>Send Message</base-button>
        </div>
@@ -17,33 +17,34 @@
 
 <script>
 export default {
-    data() {
-        return{
-            email: '',
-            message: '',
-            formIsValid: true
-        }
-        
-    },
-    methods: {
-        submitForm() {
-            this.formIsValid = true;
-            if ( this.email === '' || 
-            !this.email.includes( '@') || 
-            this.message === ''
-            ){
-                this.formIsValid = false;
-                return;
-            }
-            this.$store.dispatch('requests/contactCoach', {
-                email: this.email,
-                message: this.message,
-                coachId: this.$route.params.id
-                //coachId: $this.route.params.id
-            });
-            this.$router.replace('/coaches');
-        }
+  data() {
+    return{
+      email: '',
+      message: '',
+      formIsValid: true
     }
+      
+  },
+  methods: {
+    submitForm() {
+      this.formIsValid = true;
+      if ( this.email === '' || 
+        !this.email.includes( '@' ) || 
+        this.message === ''
+      )
+      {
+        this.formIsValid = false;
+        return;
+      }
+      this.$store.dispatch('requests/contactCoach', {
+        email: this.email,
+        message: this.message,
+        coachId: this.$route.params.id
+        //coachId: $this.route.params.id
+      });
+        this.$router.replace('/coaches');
+    }
+  }
 }
 
 </script>
