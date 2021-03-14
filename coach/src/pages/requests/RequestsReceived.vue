@@ -1,9 +1,9 @@
 <template>
   <section>
     <base-card>
-    <header>
+    
       <h2>Requests Received</h2>
-    </header>   
+      
     <ul v-if="hasRequests">
       <request-item v-for="req in receivedRequests" 
       :key="req.id" :email="req.userEmail" 

@@ -8,7 +8,7 @@
            <label for="message">Message</label>
            <textarea id="message" rows="5" v-model.trim="message"></textarea>
        </div>
-       <p class="errors" v-if="!formIsValid">Please enter vaild email</p>
+       <p class="errors" v-if="!formIsValid">Please enter vaild email and insure message in not empty</p>
        <div class = "actions">
            <base-button>Send Message</base-button>
        </div>
