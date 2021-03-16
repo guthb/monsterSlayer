@@ -11,7 +11,7 @@
             <div v-if="isLoading">
                 <base-spinner></base-spinner>
             </div>
-            <ul v-if="hasCoaches">
+            <ul v-else-if="hasCoaches">
                 <!-- <li v-for="coach in filteredCoaches" :key ="coach.id">
                     {{coach.firstName}}
                 </li> -->
@@ -42,7 +42,7 @@ export default {
     },
     data(){
         return {
-            isloading: false,
+            isLoading: false,
             activeFilters: {
                 frontend: true,
                 backend: true,
@@ -70,7 +70,7 @@ export default {
            });
         },
         hasCoaches() {
-            return this.$store.getters['coaches/hasCoaches'];
+            return !this.isLoading && this.$store.getters['coaches/hasCoaches'];
         },
         
     },
@@ -83,9 +83,9 @@ export default {
            
         },
         async loadCoaches(){
-            this.isloading = true;
+            this.isLoading = true;
             await this.$store.dispatch('coaches/loadCoaches');
-            this.isloading = false;
+            this.isLoading = false;
         }
     },
 };
