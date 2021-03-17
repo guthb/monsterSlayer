@@ -10,7 +10,8 @@ export default {
             areas: data.areas
         };
 
-        const response = await fetch(`https://vue-coach-adb56-default-rtdb.firebaseio.com/coaches/${userId}.json`, {
+        const response = await fetch(
+            `https://vue-coach-adb56-default-rtdb.firebaseio.com/coaches/${userId}.json`, {
             method: 'PUT',
             body: JSON.stringify(coachData)
         });
