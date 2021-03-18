@@ -22,5 +22,27 @@ export default {
         newRequest.coachId = payload.coachId;
 
         context.commit('addRequest', newRequest);
+    },
+    async fetchRequests(context) {
+        const coachId = context.roodGetters.userId;
+        const response = await fetch(`https://vue-coach-adb56-default-rtdb.firebaseio.com/requests/${coachId}.json`)
+        const responseData = await response.json();
+
+        if (!response.ok) {
+            const error = new Error(responseData.message || 'Failed to fetch request!')
+            throw error;
+        }
+        
+        const requests = []
+        for (const key in responseData) {
+            const request = {
+                id: key,
+                coachId: coachId,
+                userEmail: responseData[key].userEmail,
+                message: responseData[key].message
+            };
+            requests.push(request);
+        }
+        context.commit('setRequests', requests);
     }
 };
