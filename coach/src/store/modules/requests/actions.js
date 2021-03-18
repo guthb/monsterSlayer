@@ -6,7 +6,7 @@ export default {
             userEmail: payload.message,
             message: payload.message
         };
-        const response = await fetch(`https://vue-coach-adb56-default-rtdb.firebaseio.com/requests/${payload.coachId}.json`{
+        const response = await fetch(`https://vue-coach-adb56-default-rtdb.firebaseio.com/requests/${payload.coachId}.json`, {
             method: 'POST',
             body: JSON.stringify(newRequest)
         });
