@@ -42,6 +42,9 @@ export default {
       return this.$store.getters['requests/hasRequests']
     }
   },
+  created() {
+    this.loadRequests();
+  },
   methods: {
     async loadRequests() {
       this.isLoading = true;
