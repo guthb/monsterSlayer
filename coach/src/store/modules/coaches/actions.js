@@ -11,7 +11,7 @@ export default {
         };
 
         const response = await fetch(
-            `https://vue-coach-adb56-default-rtdb.firebaseio.com/coaches/${userId}.json`, {
+            `https://vue-coach-adb56-default-rtdb.firebaseio.com/coaches/${userId}.jso`, {
             method: 'PUT',
             body: JSON.stringify(coachData)
         });
@@ -31,7 +31,7 @@ export default {
     async loadCoaches(context, payload) {
         if (payload.forceRefresh && !context.getters.shouldUpdate) {
             return;
-        };
+        }
         const response = await fetch(
             `https://vue-coach-adb56-default-rtdb.firebaseio.com/coaches.json`
         );
