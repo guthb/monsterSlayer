@@ -9,7 +9,7 @@
       <h2>Requests Received</h2>
     </header>  
     <base-spinner v-if="isLoading"></base-spinner>
-    <ul v-if="hasRequests && !isLoading">
+    <ul v-else-if="hasRequests && !isLoading">
       <request-item v-for="req in receivedRequests" 
         :key="req.id" :email="req.userEmail" 
         :message="req.message"

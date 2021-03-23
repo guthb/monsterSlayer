@@ -6,7 +6,6 @@
                 <h3>${{ rate }}</h3>
             </base-card>
         </section>
-
         <section>
             <base-card>
                 <header>
