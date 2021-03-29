@@ -1,10 +1,29 @@
 export default {
-    login() {},
-    async signup(context, payload) {
-        const response = await fetch(`[enter api key to test]`,{
+    async login() {        
+        const response = await fetch(``, {
             method: 'POST',
             body: JSON.stringify({
-                email: payload.eamil,
+                email: payload.email,
+                password: payload.password,
+                returnSecureToken: true
+            })
+        });
+
+        const responseData = await response.json();
+
+        if (!response.ok) {
+            console.log("not ok response",responseData)
+            const error = new Error(responseData.message || 'Failed to authenticate, check your log in');
+            throw error;
+        }
+
+    },
+    async signup(context, payload) {
+        
+        const response = await fetch(``, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: payload.email,
                 password: payload.password,
                 returnSecureToken:true
             })
@@ -13,12 +32,12 @@ export default {
         const responseData = await response.json();
 
         if (!response.ok) {
-            console.log("not ok response",resonseData)
-            const error = new Error(resonseData.message || 'Failed to authenticate');
+            console.log("not ok response",responseData)
+            const error = new Error(responseData.message || 'Failed to authenticate, check your log in');
             throw error;
         }
 
-        console.log(resonseData);
+        console.log(responseData);
         context.commit('setUser', {
             token: responseData.idToken,
             userId: responseData.localId,

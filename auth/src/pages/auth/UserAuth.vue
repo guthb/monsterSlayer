@@ -1,4 +1,11 @@
 <template>
+  <base-dialog :show="!!error" title= "an error occured" @close="handleError"></base-dialog>
+    <p>{{error}}</p>
+  <base-dialog :show="isloading" title="Authenticating..." fixed>
+    <!-- <p>Authenticating..</p> -->
+    <base-spinner></base-spinner>
+  </base-dialog>
+  <div>
     <base-card>
     <form @submit.prevent="submitForm">
     <div class="form-control">
@@ -14,6 +21,7 @@
     <base-button type="button" mode="flat" @click="switchAuthMode">{{ switchModeButtonCaption}}</base-button>
     </form>
     </base-card>
+  </div>
 </template>
 
 <script>
@@ -24,7 +32,9 @@ export default {
       email: '',
       password: '',
       formIsValid:'',
-      mode: 'login'
+      mode: 'login',
+      isLoading: false,
+      error: null
     };
   },
   computed: {
@@ -44,7 +54,7 @@ export default {
     }
   },
   methods: {
-    submitForm() {
+    async submitForm() {
       this.formIsValid = true;
       if (this.email ==='' || 
         !this.eamil.includes('@') ||
@@ -53,15 +63,25 @@ export default {
         this.formIsValid = false;
         return;
       }
-      // send http request
-      if ( this.mode === 'login'){
 
-      }else {
-        this.$store.dispathc('signup', {
-          email: this.email,
-          password: this.password,
-        } )
+      this.isLoading = true;
+      
+      try {
+
+        // send http request
+        if ( this.mode === 'login'){
+  
+        }else {
+          await this.$store.dispatch('signup', {
+            email: this.email,
+            password: this.password,
+          } )
+        }
+      } catch (err){
+        this.error = err.message || 'failed to authenticate'
       }
+      
+      this.isLoading = false;
 
     },
     switchAuthMode() {
@@ -70,8 +90,11 @@ export default {
       } else {
         this.mode = 'login';
       }
+    },
+    handleError() {
+      this.error = null;
     }
-  }
+  },
 }
 
 </script>
