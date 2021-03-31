@@ -3,23 +3,23 @@
     <p>{{error}}</p>
   <base-dialog :show="isloading" title="Authenticating..." fixed>
     <!-- <p>Authenticating..</p> -->
-    <base-spinner></base-spinner>
+  <base-spinner></base-spinner>
   </base-dialog>
   <div>
     <base-card>
-    <form @submit.prevent="submitForm">
-    <div class="form-control">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" v-model.trim="email">
-    </div>
-    <div class="form-control">
-        <label for="password">Password</label>
-        <input type="password" id='password' v-model.trim="password">
-    </div>
-    <p v-if="!formIsValid">Pleaes enter a valid email and password (must be at least 6 charachters)</p>
-    <base-button>{{submitButtonCaption}}</base-button>
-    <base-button type="button" mode="flat" @click="switchAuthMode">{{ switchModeButtonCaption}}</base-button>
-    </form>
+      <form @submit.prevent="submitForm">
+        <div class="form-control">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" v-model.trim="email">
+        </div>
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" id='password' v-model.trim="password">
+        </div>
+        <p v-if="!formIsValid">Pleaes enter a valid email and password (must be at least 6 charachters)</p>
+        <base-button>{{submitButtonCaption}}</base-button>
+        <base-button type="button" mode="flat" @click="switchAuthMode">{{ switchModeButtonCaption}}</base-button>
+      </form>
     </base-card>
   </div>
 </template>
