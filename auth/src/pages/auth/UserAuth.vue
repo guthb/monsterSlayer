@@ -16,7 +16,7 @@
             <label for="password">Password</label>
             <input type="password" id='password' v-model.trim="password">
         </div>
-        <p v-if="!formIsValid">Pleaes enter a valid email and password (must be at least 6 charachters)</p>
+        <p v-if="!formIsValid">Please enter a valid email and password (must be at least 6 charachters)</p>
         <base-button>{{submitButtonCaption}}</base-button>
         <base-button type="button" mode="flat" @click="switchAuthMode">{{ switchModeButtonCaption}}</base-button>
       </form>
@@ -56,14 +56,15 @@ export default {
   methods: {
     async submitForm() {
       this.formIsValid = true;
-      if (this.email ==='' || 
+      if (this.email === '' || 
         !this.email.includes('@') ||
         this.password.length < 6
       ){
         this.formIsValid = false;
         return;
       }
-
+      // send http request
+      
       this.isLoading = true;
       
       const actionPayload = {
