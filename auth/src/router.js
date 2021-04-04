@@ -21,11 +21,15 @@ const router = createRouter({
         { path: 'contact', component: ContactCoach } // /coaches/c1/contact
       ]
     },
-    { path: '/register', component: CoachRegistation },
-    { path: '/requests', component: RequestsReceived },
-    { path: '/auth', component: UserAuth},
+    { path: '/register', component: CoachRegistation, meta: { requiresAuth: true } },
+    { path: '/requests', component: RequestsReceived, meta: { requiresAuth: true } },
+    { path: '/auth', component: UserAuth, meta: { requiresUnauth: true }},
     { path: '/:notFound(.*)', component: NotFound }
   ]
 });
+
+router.beforeEach(function (to, from, next) {
+  
+})
 
 export default router;
