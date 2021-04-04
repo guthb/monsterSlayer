@@ -78,8 +78,8 @@ export default {
         } else {
           await this.$store.dispatch('signup', actionPayload);
         }
-        cost redirectUrl = '/' + this.$route.query.redirect
-        this.$router.replace('/coaches');
+        cost redirectUrl = '/' + (this.$route.query.redirect || 'coaches')
+        this.$router.replace(redirectUrl);
       } catch (err){
         this.error = err.message || 'failed to authenticate, try later'
       }
