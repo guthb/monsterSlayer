@@ -44,6 +44,19 @@ export default {
             tokenExpiration: responseData.expiresIn
         });
     },
+    autoLogin(context) {
+        const token = localStorage.getItem('token');
+        const userId = localStorage.getItem('userId');
+        
+        if (token && userId) {
+            context.commit('setUser', {
+                token: token,
+                userId: userId,
+                tokenExpiration: null
+            });
+            
+        }
+    },
     logout(context) {
         context.commit('setUser', {
             token: null,
