@@ -16,7 +16,7 @@ export default {
     // const uName = ref('Tommy');
     // const uAge = ref(26);
 
-    const user = ref({
+    const user = reactive({
       name: 'Barney',
       age: 26
     })
@@ -24,12 +24,12 @@ export default {
     setTimeout(function() {
       // uName.value = 'Tom';
       // uAge.value = 44;
-      user.value.name = 'Tom'
-      user.value.age = 44
+      user.name = 'Tom'
+      user.age = 44
     }, 2000);
 
     //return { userName: uName, age: uAge};
-        return { userName: user.name.value, userAge: user.age.value, user: user};
+        return { user: user};
   }
 //   data() {
 //     return {
