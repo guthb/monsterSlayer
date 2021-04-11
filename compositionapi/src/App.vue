@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {reactive} from 'vue';
+import {ref, reactive} from 'vue';
 
 
 export default {
@@ -16,6 +16,7 @@ export default {
     // const uName = ref('Tommy');
     // const uAge = ref(26);
 
+    const uAge = ref(13)
     const user = reactive({
       name: 'Barney',
       age: 26
