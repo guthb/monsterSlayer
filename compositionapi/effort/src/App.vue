@@ -16,7 +16,7 @@
 import {ref} from 'vue';
 export default {
   setup() {
-    const courseGoal = 'Finish comp api effort';
+    const courseGoal = ref('Finish comp api effort');
     const goalIsVisible = reg(false);
 
 
