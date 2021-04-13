@@ -2,7 +2,7 @@
   <h2>My Course Goal</h2>
   <!-- Task 1: Output your main course goal with help of the composition API -->
   <!-- Don't hardcode it into the template, instead hardcode it into the JS code -->
-  <h3 v-if="courseData.goalVisibility">{{goal}}</h3>
+  <h3 v-if="goalVisibility">{{goal}}</h3>
   <!-- Task 2: Toggle (show/ hide) the goal with help of the button  -->
   <button @click="togggleGoalVisibility">Toggle Goal</button>
   <!-- Task 3: Manage data in three ways -->
@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import {reactive} from 'vue';
+//import {reactive} from 'vue';
 export default {
-  setup() {
+  // setup() {
     // const courseGoal = ref('Finish comp api effort');
     // const goalIsVisible = reg(false);
     // const courseData = ref({
@@ -23,23 +23,36 @@ export default {
     //   goalVisibility: false
     // })
 
-    onst courseData = reactive({
-      goal: "another way",
-      goalVisibility: false
-    })
+    // const courseData = reactive({
+    //   goal: "another way",
+    //   goalVisibility: false
+    // })
 
 
-    function toggleGoalVisibility() {
+    //function toggleGoalVisibility() {
       //goalIsVisible.value = !goalIsVisible.value;
       //courseData.value.goalVisibility = !courseData.value.goalVisibility;
-      courseData.goalVisibility = !courseData.goalVisibility;
-    }
+    //  courseData.goalVisibility = !courseData.goalVisibility;
+    //}
 
-    return { 
-      goal: courseGoal.goal, 
-      courseData,
-      toggleGoalVisibility };
+  //   return { 
+  //     goal: courseGoal.goal, 
+  //     courseData,
+  //     toggleGoalVisibility };
+  // }
+  data() {
+    return{
+      goal: " wrap it up",
+      goalVisibility: false
+    }
+  },
+  methods: {
+    toggleGoalVisibility() {
+      this.goalVisibility = !this.goalVisibility;
+    }
   }
+
+
 }
 </script>
 
