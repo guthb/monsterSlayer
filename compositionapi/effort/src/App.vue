@@ -13,12 +13,17 @@
 </template>
 
 <script>
-import {ref} from 'vue';
+import {reactive} from 'vue';
 export default {
   setup() {
     // const courseGoal = ref('Finish comp api effort');
     // const goalIsVisible = reg(false);
-    const courseData = ref({
+    // const courseData = ref({
+    //   goal: "another way",
+    //   goalVisibility: false
+    // })
+
+    onst courseData = reactive({
       goal: "another way",
       goalVisibility: false
     })
@@ -26,12 +31,13 @@ export default {
 
     function toggleGoalVisibility() {
       //goalIsVisible.value = !goalIsVisible.value;
-      courseData.value.goalVisibility = !courseData.value.goalVisibility;
+      //courseData.value.goalVisibility = !courseData.value.goalVisibility;
+      courseData.goalVisibility = !courseData.goalVisibility;
     }
 
     return { 
-      goal: courseGoal.value.goal, 
-      courseData.
+      goal: courseGoal.goal, 
+      courseData,
       toggleGoalVisibility };
   }
 }
