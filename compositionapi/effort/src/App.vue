@@ -17,17 +17,17 @@ import {ref} from 'vue';
 export default {
   setup() {
     const courseGoal = 'Finish comp api effort';
-    let goalIsVisible = reg(false);
+    const goalIsVisible = reg(false);
 
 
     function toggleGoalVisibility() {
-      goalIsVisible = !goalIsVisible;
+      goalIsVisibl.value = !goalIsVisible.value;
     }
 
     return { 
       goal: courseGoal, 
-      goalIsVisible: goalIsVisible,
-      toggleGoalVisibility: toggleGoalVisibility };
+      goalIsVisible,
+      toggleGoalVisibility };
   }
 }
 </script>
