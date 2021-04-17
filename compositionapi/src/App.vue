@@ -32,8 +32,11 @@ export default {
     //   user.age = 44
     // }, 2000);
 
-  watch(uAge, function() {})
-  
+  watch(uAge, function(newValue, oldValue) {
+    console.log('Old age:' + oldValue);
+    console.log('New age:' + newValue)
+  })
+
   const uName = computed(function(){
     return firstName.value + ' ' + lastName.value;
   });
