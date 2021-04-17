@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import{ref, compile} from 'vue';
+import{ref, compile, watch} from 'vue';
 
 export default {
 
@@ -20,9 +20,9 @@ export default {
     // const uAge = ref(26);
 
     //const uName = ref('Barney');
-    const uAge  = ref(26);
-    const firstName = ref('');
-    const lastName = ref('');
+  const uAge  = ref(26);
+  const firstName = ref('');
+  const lastName = ref('');
     
 
     // setTimeout(function() {
@@ -32,9 +32,11 @@ export default {
     //   user.age = 44
     // }, 2000);
 
-    const uName = computed(function(){
-      return firstName.value + ' ' + lastName.value;
-    });
+  watch(uAge, function() {})
+  
+  const uName = computed(function(){
+    return firstName.value + ' ' + lastName.value;
+  });
 
     function setNewAge() {
       uAge.value = 77;
@@ -62,7 +64,6 @@ export default {
 //     this.age =32;
 //   }
 // }
-
 
 };
 </script>
