@@ -32,22 +32,25 @@ export default {
     //   user.age = 44
     // }, 2000);
 
-  watch(uAge, function(newValue, oldValue) {
-    console.log('Old age:' + oldValue);
-    console.log('New age:' + newValue)
-  })
 
   const uName = computed(function(){
     return firstName.value + ' ' + lastName.value;
   });
 
-    function setNewAge() {
-      uAge.value = 77;
-    }
+  watch([uAge, uName], function(newValue, oldValue) {
+    console.log('Old age:' + oldValue[0]);
+    console.log('New age:' + newValue[0]);
+    console.log('Old name:' + oldValue[1]);
+    console.log('New name:' + newValue[1]);
+  })
 
-    function setFirstName(event) {
-      firstName.value = event.target.value
-    }
+  function setNewAge() {
+    uAge.value = 77;
+  }
+
+  function setFirstName(event) {
+    firstName.value = event.target.value
+  }
 
     function setLastName(event) {
       firstName.value = event.target.value
