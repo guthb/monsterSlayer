@@ -20,7 +20,8 @@
 </template>
 
 <script>
-import {ref } from 'vue';
+import {ref, computed } from 'vue';
+
 
 export default {
   setup() {
@@ -29,16 +30,21 @@ export default {
     const currentExpenses = ref(0);
     const enteredExpense = ref(0);
 
+    const remainingFunds = computed(function() {
+      return availableFunds - currentExpenses.value;
+    });
+
 
     function addExpense() {
-      currentExpenses.value = currentExpenses.values + enteredExpense.value;
+      currentExpenses.value = currentExpenses.value + enteredExpense.value;
     }
 
     return {
       availableFunds,
       currentExpenses,
       enteredExpense,
-      addExpense
+      addExpense,
+      remainingFunds
     }
 
   }
