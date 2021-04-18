@@ -29,10 +29,16 @@ export default {
     const currentExpenses = ref(0);
     const enteredExpense = ref(0);
 
+
+    function addExpense() {
+      currentExpenses.value = currentExpenses.values + enteredExpense.value;
+    }
+
     return {
       availableFunds,
       currentExpenses,
-      enteredExpense
+      enteredExpense,
+      addExpense
     }
 
   }
