@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {ref, computed } from 'vue';
+import {ref, computed,watch} from 'vue';
 
 
 export default {
@@ -33,6 +33,13 @@ export default {
     const remainingFunds = computed(function() {
       return availableFunds - currentExpenses.value;
     });
+
+    watch(remainingFunds, function(newValue) {
+      if (newValue < 0 ) {
+        alert ('You got no Money Bro!');
+      }
+    });
+    
 
 
     function addExpense() {
