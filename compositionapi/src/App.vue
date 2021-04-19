@@ -5,13 +5,14 @@
     <button @click="setAge">change age</button>
     <div>
       <input type="text" placeholder="First Name" v-model="firstName" />
-      <input type="text" placeholder="Last Name"  v-model="lastName" />
+      <input type="text" placeholder="Last Name"  ref="lastnameInput" />
+      <button @click="setLastName">Set Last Name</button>
     </div>
   </section>
 </template>
 
 <script>
-import{ref, compile, watch} from 'vue';
+import{ref, watch, computed} from 'vue';
 
 export default {
 
@@ -20,10 +21,11 @@ export default {
     // const uAge = ref(26);
 
     //const uName = ref('Barney');
-  const uAge  = ref(26);
-  const firstName = ref('');
-  const lastName = ref('');
-    
+    const uAge  = ref(26);
+    const firstName = ref('');
+    const lastName = ref('');
+    const lastNameInput = ref(null);
+      
 
     // setTimeout(function() {
     //   // uName.value = 'Tom';
@@ -48,16 +50,20 @@ export default {
     uAge.value = 77;
   }
 
-  function setFirstName(event) {
-    firstName.value = event.target.value
+  // function setLastName() {
+  //   lastName.value = 101;
+  // }
+
+  // function setFirstName(event) {
+  //   firstName.value = event.target.value
+  // }
+
+  function setLastName() {
+    lastName.value = lastNameInput.value.value;
   }
 
-    function setLastName(event) {
-      firstName.value = event.target.value
-    }
-
     //return { userName: uName, age: uAge};
-    return { userName: uName, age: uAge, setAge: setNewAge, firstName, lastName};
+    return { userName: uName, age: uAge, setAge: setNewAge, firstName, lastNameInput, setLastName};
   }
 //   data() {
 //     return {
