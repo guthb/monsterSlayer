@@ -7,6 +7,11 @@
 import { defineComponent } from '@vue/composition-api'
 
 export default {
-    props: ['userName', 'age']
+    props: ['firstName', 'lastName', 'age'],
+    computed: {
+        userName() {
+            return this.firstName + ' ' + this.lastName;
+        }
+    }
 }
 </script>
