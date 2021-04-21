@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
 
 export default {
     props: ['firstName', 'lastName', 'age'],
@@ -20,9 +20,13 @@ export default {
             return props.firstName + ' ' + props.lastName;
         });
 
+        const age = inject('userAge')
+
+
+
         console.log(context);
 
-        return { userName: uName };
+        return { userName: uName, age };
     }
 }
 </script>

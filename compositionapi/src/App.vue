@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import{ref, watch, computed} from 'vue';
+import{ref, watch, computed, provide} from 'vue';
 import userDate from './components/UserData.vue';
 
 export default {
@@ -35,7 +35,7 @@ export default {
     //   user.name = 'Tom'
     //   user.age = 44
     // }, 2000);
-
+    provide('userAge', uAge);
 
   const uName = computed(function(){
     return firstName.value + ' ' + lastName.value;
