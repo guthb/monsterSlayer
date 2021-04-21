@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <user-data :first-name="firstName" :last-name="lastName" :age="age"></user-data>
+    <user-data class="test" :first-name="firstName" :last-name="lastName" :age="age"></user-data>
     <button @click="setAge">change age</button>
     <div>
       <input type="text" placeholder="First Name" v-model="firstName" />
