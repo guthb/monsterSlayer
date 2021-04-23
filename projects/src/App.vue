@@ -21,19 +21,23 @@ export default {
     const selectedUser = ref(null);
     const activeUsers = USER_DATA;
 
-    return { selectedUser, activeUsers};
+    function selectUser(uid) {
+      selectedUser.value = activeUsers.find((usr) => usr.id === id);
+    }
+
+    return { selectedUser, activeUsers, selectUser};
   },
-  data() {
-    return {
-      selectedUser: null,
-      activeUsers: USER_DATA,
-    };
-  },
-  methods: {
-    selectUser(uid) {
-      this.selectedUser = this.activeUsers.find((usr) => usr.id === uid);
-    },
-  },
+  // data() {
+  //   return {
+  //     selectedUser: null,
+  //     activeUsers: USER_DATA,
+  //   };
+  // },
+  // methods: {
+  //   selectUser(uid) {
+  //     this.selectedUser = this.activeUsers.find((usr) => usr.id === uid);
+  //   },
+  // },
 };
 </script>
 
