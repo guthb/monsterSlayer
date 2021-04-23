@@ -16,6 +16,7 @@ export default {
     UserList,
     ProjectsList,
   },
+  setup() {},
   data() {
     return {
       selectedUser: null,
