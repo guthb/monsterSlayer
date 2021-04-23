@@ -20,6 +20,8 @@ export default {
   setup() {
     const selectedUser = ref(null);
     const activeUsers = USER_DATA;
+
+    return { selectedUser, activeUsers};
   },
   data() {
     return {
