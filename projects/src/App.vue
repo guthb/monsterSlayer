@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import {ref } from 'vue';
 import USER_DATA from './dummy-data.js';
 
 import UserList from './components/users/UserList.vue';
@@ -16,7 +17,10 @@ export default {
     UserList,
     ProjectsList,
   },
-  setup() {},
+  setup() {
+    const selectedUser = ref(null);
+    const activeUsers = USER_DATA;
+  },
   data() {
     return {
       selectedUser: null,
