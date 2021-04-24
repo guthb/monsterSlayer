@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {ref} from 'vue';
+import {ref, computed} from 'vue';
 
 import UserItem from './UserItem.vue';
 
@@ -28,10 +28,23 @@ export default {
     UserItem,
   },
   props: ['users'],
-  setup() {
+  setup(props) {
       const enteredSearchTerm = ref('');
       const activeSearchTerm = ref('');
+      //search logic
+      computed (function() {
+        let users = [];
+        if (activeSearchTerm.value) {
+          users = props.users.filter((usr) =>
+          usr.fullName.includes(activeSearchTerm.value)
+          );
+        } else if (props.users) {
+          users = props.users;
+        }
+        return users;
+      })
       const sorting= ref(null);
+      //sorting logic
   },
   // data() {
   //   return {
@@ -42,15 +55,15 @@ export default {
   // },
   computed: {
     availableUsers() {
-      let users = [];
-      if (this.activeSearchTerm) {
-        users = this.users.filter((usr) =>
-          usr.fullName.includes(this.activeSearchTerm)
-        );
-      } else if (this.users) {
-        users = this.users;
-      }
-      return users;
+      // let users = [];
+      // if (this.activeSearchTerm) {
+      //   users = this.users.filter((usr) =>
+      //     usr.fullName.includes(this.activeSearchTerm)
+      //   );
+      // } else if (this.users) {
+      //   users = this.users;
+      // }
+      // return users;
     },
     displayedUsers() {
       if (!this.sorting) {
