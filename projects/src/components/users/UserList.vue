@@ -32,7 +32,7 @@ export default {
       const enteredSearchTerm = ref('');
       const activeSearchTerm = ref('');
       //search logic
-      computed (function() {
+      const availableUsers= computed(function() {
         let users = [];
         if (activeSearchTerm.value) {
           users = props.users.filter((usr) =>
@@ -45,6 +45,24 @@ export default {
       })
       const sorting= ref(null);
       //sorting logic
+      const displayedUsers = computed(function() {
+        if (!sorting.value) {
+          return availableUsers.value;
+        }
+        return availableUsers.value.slice().sort((u1, u2) => {
+          if (sorting.value === 'asc' && u1.fullName > u2.fullName) {
+            return 1;
+          } else if (sorting.value === 'asc') {
+            return -1;
+          } else if (sorting.value === 'desc' && u1.fullName > u2.fullName) {
+            return -1;
+          } else {
+            return 1;
+          }
+        });
+      })
+    },
+
   },
   // data() {
   //   return {
@@ -54,7 +72,7 @@ export default {
   //   };
   // },
   computed: {
-    availableUsers() {
+    //availableUsers() {
       // let users = [];
       // if (this.activeSearchTerm) {
       //   users = this.users.filter((usr) =>
@@ -64,23 +82,23 @@ export default {
       //   users = this.users;
       // }
       // return users;
-    },
+    //},
     displayedUsers() {
-      if (!this.sorting) {
-        return this.availableUsers;
-      }
-      return this.availableUsers.slice().sort((u1, u2) => {
-        if (this.sorting === 'asc' && u1.fullName > u2.fullName) {
-          return 1;
-        } else if (this.sorting === 'asc') {
-          return -1;
-        } else if (this.sorting === 'desc' && u1.fullName > u2.fullName) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-    },
+    //   if (!this.sorting) {
+    //     return this.availableUsers;
+    //   }
+    //   return this.availableUsers.slice().sort((u1, u2) => {
+    //     if (this.sorting === 'asc' && u1.fullName > u2.fullName) {
+    //       return 1;
+    //     } else if (this.sorting === 'asc') {
+    //       return -1;
+    //     } else if (this.sorting === 'desc' && u1.fullName > u2.fullName) {
+    //       return -1;
+    //     } else {
+    //       return 1;
+    //     }
+    //   });
+    // },
   },
   methods: {
     updateSearch(val) {
