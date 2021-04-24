@@ -47,13 +47,13 @@ export default {
 
       watch(enteredSearchTerm,function(newValue){
         setTimeout(() => {
-          if (val === enteredSearchTerm.value) {
+          if (newValue === enteredSearchTerm.value) {
             activeSearchTerm.value = newValue;
           }
         }, 300);
       });
 
-      functon updateSearch(val){
+      function updateSearch(val){
         enteredSearchTerm.value = val;
       }
 
@@ -90,6 +90,7 @@ export default {
     
 
   },
+};
   // data() {
   //   return {
   //     enteredSearchTerm: '',
