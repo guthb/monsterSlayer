@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import {ref} from 'vue';
+
 import UserItem from './UserItem.vue';
 
 export default {
@@ -26,13 +28,18 @@ export default {
     UserItem,
   },
   props: ['users'],
-  data() {
-    return {
-      enteredSearchTerm: '',
-      activeSearchTerm: '',
-      sorting: null,
-    };
+  setup() {
+      const enteredSearchTerm = ref('');
+      const activeSearchTerm = ref('');
+      const sorting= ref(null);
   },
+  // data() {
+  //   return {
+  //     enteredSearchTerm: '',
+  //     activeSearchTerm: '',
+  //     sorting: null,
+  //   };
+  // },
   computed: {
     availableUsers() {
       let users = [];
