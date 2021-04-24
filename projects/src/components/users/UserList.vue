@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {ref, computed} from 'vue';
+import {ref, computed, watch} from 'vue';
 
 import UserItem from './UserItem.vue';
 
@@ -28,6 +28,7 @@ export default {
     UserItem,
   },
   props: ['users'],
+  emits: ['list-projects'],
   setup(props) {
       const enteredSearchTerm = ref('');
       const activeSearchTerm = ref('');
@@ -42,7 +43,20 @@ export default {
           users = props.users;
         }
         return users;
-      })
+      });
+
+      watch(enteredSearchTerm,function(newValue){
+        setTimeout(() => {
+          if (val === enteredSearchTerm.value) {
+            activeSearchTerm.value = newValue;
+          }
+        }, 300);
+      });
+
+      functon updateSearch(val){
+        enteredSearchTerm.value = val;
+      }
+
       const sorting= ref(null);
       //sorting logic
       const displayedUsers = computed(function() {
@@ -60,8 +74,20 @@ export default {
             return 1;
           }
         });
-      })
-    },
+      });
+
+      function sort(mode){
+        sorting.value = mode;
+      }
+
+      return {
+        enteredSearchTerm,
+        displayedUsers,
+        updateSearch,
+        sorting,
+        sort
+      };
+    
 
   },
   // data() {
@@ -71,7 +97,7 @@ export default {
   //     sorting: null,
   //   };
   // },
-  computed: {
+  //computed: {
     //availableUsers() {
       // let users = [];
       // if (this.activeSearchTerm) {
@@ -83,7 +109,7 @@ export default {
       // }
       // return users;
     //},
-    displayedUsers() {
+    //displayedUsers() {
     //   if (!this.sorting) {
     //     return this.availableUsers;
     //   }
@@ -99,25 +125,25 @@ export default {
     //     }
     //   });
     // },
-  },
-  methods: {
-    updateSearch(val) {
-      this.enteredSearchTerm = val;
-    },
-    sort(mode) {
-      this.sorting = mode;
-    },
-  },
-  watch: {
-    enteredSearchTerm(val) {
-      setTimeout(() => {
-        if (val === this.enteredSearchTerm) {
-          this.activeSearchTerm = val;
-        }
-      }, 300);
-    }
-  },
-};
+  //},
+  // methods: {
+  //   updateSearch(val) {
+  //     this.enteredSearchTerm = val;
+  //   },
+  //   sort(mode) {
+  //     this.sorting = mode;
+  //   },
+  // },
+  // watch: {
+  //   enteredSearchTerm(val) {
+  //     setTimeout(() => {
+  //       if (val === this.enteredSearchTerm) {
+  //         this.activeSearchTerm = val;
+  //       }
+  //     }, 300);
+  //   }
+  // },
+// };
 </script>
 
 <style scoped>
