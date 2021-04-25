@@ -6,6 +6,7 @@
 </template>
 
 <script>
+//leaving the options api intact, simple
 export default {
   props: ['id', 'userName'],
   emits: ['list-projects'],
