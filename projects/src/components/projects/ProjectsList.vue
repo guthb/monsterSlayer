@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {ref, computed, watch} from 'vue';
+import {ref, computed, watch, toRefs} from 'vue';
 import ProjectItem from './ProjectItem.vue';
 
 export default {
@@ -41,7 +41,7 @@ export default {
       return props.user.projects && availableProjects.value.length > 0;
     });
 
-    watch(enteredSearchTerm, function(){
+    watch(enteredSearchTerm, function(newValue){
       setTimeout(() => {
         if (newValue === enteredSearchTerm.value) {
           activeSearchTerm.value = newValue;
@@ -51,11 +51,18 @@ export default {
 
     function updateSearch(val) {
       enteredSearchTerm.value = val;
-    };
+    }
 
-    watch(, function() {
+    // const propsWithRefs = toRefs(props);
+    // const user = propsWithRefs.user;
+    // better way VVVVVV
+
+    const { user } = toRefs(props);
+
+
+    watch(user, function() {
       
-      enteredSearchTerm.vlaue = '';
+      enteredSearchTerm.value = '';
     
     });
 
