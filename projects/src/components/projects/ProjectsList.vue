@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {ref, computed} from 'vue';
+import {ref, computed, watch} from 'vue';
 import ProjectItem from './ProjectItem.vue';
 
 export default {
@@ -39,7 +39,27 @@ export default {
 
     const hasProjects = computed(function() {
       return props.user.projects && availableProjects.value.length > 0;
+    });
+
+    watch(enteredSearchTerm, function(){
+      setTimeout(() => {
+        if (newValue === enteredSearchTerm.value) {
+          activeSearchTerm.value = newValue;
+        }
+      }, 300);
     })
+
+    function updateSearch(val) {
+      enteredSearchTerm.value = val;
+    };
+
+    watch(, function() {
+      
+      enteredSearchTerm.vlaue = '';
+    
+    });
+
+    return {enteredSearchTerm, availableProjects, hasProjects, updateSearch};
 
   },
   // data() {
@@ -61,23 +81,23 @@ export default {
   //     return this.user.projects;
   //   },
   // },
-  methods: {
-    updateSearch(val) {
-      this.enteredSearchTerm = val;
-    },
-  },
-  watch: {
-    enteredSearchTerm(val) {
-      setTimeout(() => {
-        if (val === this.enteredSearchTerm) {
-          this.activeSearchTerm = val;
-        }
-      }, 300);
-    },
-    user() {
-      this.enteredSearchTerm = '';
-    },
-  },
+  // methods: {
+  //   updateSearch(val) {
+  //     this.enteredSearchTerm = val;
+  //   },
+  // },
+  // watch: {
+  //   enteredSearchTerm(val) {
+  //     setTimeout(() => {
+  //       if (val === this.enteredSearchTerm) {
+  //         this.activeSearchTerm = val;
+  //       }
+  //     }, 300);
+  //   },
+  //   user() {
+  //     this.enteredSearchTerm = '';
+  //   },
+  // },
 };
 </script>
 
