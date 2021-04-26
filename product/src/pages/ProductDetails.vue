@@ -10,7 +10,7 @@
 import { inject } from 'vue';
 
 export default {
-  props:['pid']
+  props:['pid'],
   setup(props) {
     const products = inject('products');
 
