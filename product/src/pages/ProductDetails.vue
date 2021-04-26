@@ -3,11 +3,12 @@
     <h2>{{ title }}</h2>
     <h3>${{ price}}</h3>
     <p>{{ description}}</p>
+    <router-link to="/products/p2">Product 2</router-link>
   </section>
 </template>
 
 <script>
-import { inject } from 'vue';
+import { inject, computed } from 'vue';
 
 export default {
   props:['pid'],
@@ -15,11 +16,11 @@ export default {
     const products = inject('products');
 
     
-    const selectedProduct = products.value.find(product => product.id === props.pid);
+    const selectedProduct = computed(()=> products.value.find(product => product.id === props.pid));
 
-    const title = selectedProduct.title;
-    const price = selectedProduct.price;
-    const description = selectedProduct.description;
+    const title = computed(() =>selectedProduct.value.title);
+    const price = computed( () =>selectedProduct.value.price);
+    const description = computed( () => selectedProduct.value.description);
 
 
     return { title, price, description };
