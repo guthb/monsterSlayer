@@ -15,7 +15,7 @@ export default {
       return store.getters.counter;
     });
 
-    const counter = 0;
+    // const counter = 0;
 
     return { counter };
   },
