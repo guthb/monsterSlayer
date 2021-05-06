@@ -59,7 +59,7 @@ export default {
     //   enteredSearchTerm.value = val;
     // }
 
-    const = { enteredSearchTerm, availableItems, updateSearch } = useSearch(
+    const { enteredSearchTerm, availableItems, updateSearch } = useSearch(
       props.users, 
       'fullName'
     ); 
