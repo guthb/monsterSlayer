@@ -36,8 +36,14 @@ export default {
     //   return props.user.projects;
     // });
 
+    const { user } = toRefs(props);
+
+    const projects =  computed(function () {
+      return user.value ? user.value.projects : [];
+    });
+
     const { enteredSearchTerm, availableItems, updateSearch } = useSearch(
-      props..projects, 
+     projects, 
       'title'
     ); 
 
@@ -56,7 +62,7 @@ export default {
     // const propsWithRefs = toRefs(props);
     // const user = propsWithRefs.user;
 
-    const { user } = toRefs(props);
+    
 
     watch(user, function () {
       enteredSearchTerm.value = '';
