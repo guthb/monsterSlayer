@@ -48,7 +48,7 @@ export default {
     ); 
 
     const hasProjects = computed(function () {
-      return props.user.projects && availableItems.value.length > 0;
+      return user.value.projects && availableItems.value.length > 0;
     });
 
     // watch(enteredSearchTerm, function (newValue) {
@@ -65,7 +65,8 @@ export default {
     
 
     watch(user, function () {
-      enteredSearchTerm.value = '';
+      //enteredSearchTerm.value = '';
+      updateSearch('');
     });
 
     // function updateSearch(val) {
