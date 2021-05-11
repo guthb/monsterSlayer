@@ -1,9 +1,9 @@
 <template>
   <div>
     <the-header></the-header>
-    <transition name="route" mode="out-in">
-      <router-view></router-view>
-    </transition>
+      <router-view>
+        <transition name="route" mode="out-in"></transition>
+      </router-view>
   </div>
 </template>
 
