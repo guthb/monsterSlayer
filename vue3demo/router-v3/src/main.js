@@ -17,6 +17,10 @@ const app = createApp(App)
 
 app.user(router);
 
-app.mount('#app')
+router.isReady().then(() => {
+  app.mount('#app');
+});
+
+//app.mount('#app')
 
 //createApp(App).mount('#app');
