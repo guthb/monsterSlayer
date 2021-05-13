@@ -1,6 +1,6 @@
 <template>
-  <li>
     <confirm-dialog v-if="forceConfirm" @cancel="cancelChange" @confirm="confirmChange"></confirm-dialog>
+  <li>
     <h2>{{ modeName }}</h2>
     <button @click="deactivate">Deactivate</button>
   </li>
