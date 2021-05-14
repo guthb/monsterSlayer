@@ -25,12 +25,12 @@ export default {
       );     
     });
 
-    function addGoal() {
+    function addGoal(text) {
       const newGoal = {
        id: new Date().toISOString(),
        text: text,
       };
-      goals.push(newGoal);
+      goals.value.push(newGoal);
     }
 
     return {
